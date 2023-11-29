@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Format Extension</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="popup.js" defer></script>
+</head>
+
+<style>
+/* Style for tabs */
+.tabs {
+  max-width: 100%; /* Adjust maximum width as needed */
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Hide radio buttons */
+.tab-input {
+  display: none;
+}
+
+/* Style for tab labels */
+.tab-label {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Change tab label background on hover */
+.tab-label:hover {
+  background-color: #e0e0e0;
+}
+
+/* Hide all tab contents initially */
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+}
+
+/* Show content for the checked tab */
+#jsonTab:checked ~ #jsonContent,
+#xmlTab:checked ~ #xmlContent,
+#sqlTab:checked ~ #sqlContent {
+  display: block;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .tabs {
+    width: 100%;
+  }
+
+  .tab-label {
+    padding: 8px 16px;
+  }
+
+  .tab-content {
+    padding: 16px;
+  }
+}
+
+</style>
+<body style="width: 300px; height: 400px;">
+    <div class="tabs">
+        <input type="radio" id="jsonTab" name="tab" class="tab-input" checked>
+        <label for="jsonTab" class="tab-label">Format JSON</label>
+        
+        <input type="radio" id="xmlTab" name="tab" class="tab-input">
+        <label for="xmlTab" class="tab-label">Format XML</label>
+        
+        <input type="radio" id="sqlTab" name="tab" class="tab-input">
+        <label for="sqlTab" class="tab-label">Format SQL</label>
+        
+        <div class="tab-content" id="jsonContent">
+          <h2>Format JSON</h2>
+          <textarea id="jsonInput" placeholder="Paste JSON here"></textarea>
+          <button id="jsonFormatButton">Format</button>
+        </div>
+        
+        <div class="tab-content" id="xmlContent">
+          <h2>Format XML</h2>
+          <textarea id="xmlInput" placeholder="Paste XML here"></textarea>
+          <button id="xmlFormatButton">Format</button>
+        </div>
+        
+        <div class="tab-content" id="sqlContent">
+          <h2>Format SQL</h2>
+          <textarea id="sqlInput" placeholder="Paste SQL here"></textarea>
+          <button id="sqlFormatButton">Format</button>
+        </div>
+      </div>
+</body>
+</html>
